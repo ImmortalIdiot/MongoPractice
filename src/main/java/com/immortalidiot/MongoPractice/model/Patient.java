@@ -102,4 +102,20 @@ public class Patient {
             this.severity = severity;
         }
     }
+
+    @Override
+    public String toString() {
+        return getId() + ", " + getName() + ", " +
+                getAge() + ", " + getDiseases() + ", " +
+                formatSymptoms() + ", " + getSeverity() + ", " +
+                getHospital();
+    }
+
+    private String  formatSymptoms() {
+        if (symptoms.isEmpty()) { return "[]"; }
+        return "[ " + String.join(", ", symptoms
+                .stream()
+                .map(symptom -> "\"" + symptom + "\"")
+                .toArray(String[]::new)) + " ]";
+    }
 }
