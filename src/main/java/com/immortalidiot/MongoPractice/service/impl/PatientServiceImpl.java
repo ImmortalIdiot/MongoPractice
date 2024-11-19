@@ -3,6 +3,8 @@ package com.immortalidiot.MongoPractice.service.impl;
 import com.immortalidiot.MongoPractice.model.Patient;
 import com.immortalidiot.MongoPractice.repository.PatientRepository;
 import com.immortalidiot.MongoPractice.service.PatientService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,6 +46,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
+    }
+
+    @Override
+    public Page<Patient> getPatients(PageRequest pageRequest) {
+        return patientRepository.findAll(pageRequest);
     }
 
     @Override

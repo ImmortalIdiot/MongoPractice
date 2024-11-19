@@ -3,6 +3,8 @@ package com.immortalidiot.MongoPractice.controller;
 import com.immortalidiot.MongoPractice.model.Patient;
 import com.immortalidiot.MongoPractice.service.GeneratePatientService;
 import com.immortalidiot.MongoPractice.service.PatientService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,14 @@ public class PatientController {
                              GeneratePatientService generatePatientService) {
         this.patientService = patientService;
         this.generatePatientService = generatePatientService;
+    }
+
+    @GetMapping("/patients")
+    public Page<Patient> getPatientsPage(
+            @RequestParam(defaultValue = "0") Integer offset,
+            @RequestParam(defaultValue = "10") Integer limit
+    ) {
+        return patientService.getPatients(PageRequest.of(offset, limit));
     }
 
     @PostMapping("/create")
