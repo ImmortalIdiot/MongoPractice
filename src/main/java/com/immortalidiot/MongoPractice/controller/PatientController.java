@@ -23,12 +23,12 @@ public class PatientController {
     }
 
     @PostMapping("/create")
-    public Patient createPatient(@RequestBody String name,
-                                 @RequestBody String diseases,
-                                 @RequestBody String hospital,
-                                 @RequestBody List<String> symptoms,
-                                 @RequestBody int age,
-                                 @RequestBody String severity) {
+    public Patient createPatient(@RequestParam String name,
+                                 @RequestParam String diseases,
+                                 @RequestParam String hospital,
+                                 @RequestParam List<String> symptoms,
+                                 @RequestParam int age,
+                                 @RequestParam String severity) {
         return patientService.createPatient(name, diseases, hospital, symptoms, age, severity);
     }
 
@@ -39,7 +39,7 @@ public class PatientController {
     }
 
     @PutMapping("/update/{id}")
-    public Patient updatePatient(@RequestBody String id,
+    public Patient updatePatient(@PathVariable String id,
                                  @RequestBody Patient patient) {
         return patientService.updatePatient(id, patient);
     }
@@ -55,12 +55,12 @@ public class PatientController {
     }
 
     @GetMapping("/severity")
-    public List<Patient> getPatientBySeverity(@RequestBody String severity) {
+    public List<Patient> getPatientBySeverity(@RequestParam String severity) {
         return patientService.findPatientBySeverity(severity);
     }
 
     @GetMapping("/age")
-    public List<Patient> getPatientByAge(@RequestBody int age) {
+    public List<Patient> getPatientByAge(@RequestParam int age) {
         return patientService.findPatientByAge(age);
     }
 
