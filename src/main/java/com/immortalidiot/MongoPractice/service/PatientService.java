@@ -5,7 +5,12 @@ import com.immortalidiot.MongoPractice.model.Patient;
 import java.util.List;
 
 public interface PatientService {
-    Patient createPatient(Patient patient);
+    Patient createPatient(String name,
+                          String diseases,
+                          String hospital,
+                          List<String> symptoms,
+                          int age,
+                          String severity);
     Patient getPatientById(String id);
     List<Patient> getAllPatients();
     List<Patient> findPatientBySeverity(String severity);
