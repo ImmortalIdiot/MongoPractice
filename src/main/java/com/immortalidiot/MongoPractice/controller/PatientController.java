@@ -59,7 +59,7 @@ public class PatientController {
         return patientService.findPatientBySeverity(severity);
     }
 
-    @GetMapping("/severity")
+    @GetMapping("/age")
     public List<Patient> getPatientByAge(@RequestBody int age) {
         return patientService.findPatientByAge(age);
     }
