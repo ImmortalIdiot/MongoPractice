@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collation = "Medicals")
+@Document(collection = "Medicals")
 public class Patient {
 
     @Id
