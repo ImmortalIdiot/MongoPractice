@@ -3,9 +3,11 @@ package com.immortalidiot.MongoPractice.service.impl;
 import com.immortalidiot.MongoPractice.model.Patient;
 import com.immortalidiot.MongoPractice.repository.PatientRepository;
 import com.immortalidiot.MongoPractice.service.PatientService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PatientServiceImpl implements PatientService {
 
     private final PatientRepository patientRepository;
