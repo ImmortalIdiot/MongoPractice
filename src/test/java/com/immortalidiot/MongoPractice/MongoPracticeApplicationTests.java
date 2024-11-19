@@ -9,5 +9,4 @@ class MongoPracticeApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
